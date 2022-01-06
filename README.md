@@ -17,8 +17,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # 💻 Running
 ## Clone & install
 
-+ Clone this repo `https://github.com/debrajhyper/GeekTrust.git`
-+ Goto `$ cd GeekTrust/admin-ui`
++ Clone this repo `https://github.com/debrajhyper/Admin-UI.git`
++ Goto `$ cd Admin-UI`
 + type `$ npm install`
 + run `$ npm start`
 
