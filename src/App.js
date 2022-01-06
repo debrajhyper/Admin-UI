@@ -82,7 +82,7 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen min-w-screen bg-background text-gray text-center">
+    <div className="min-h-screen min-w-screen bg-background text-gray text-center flex justify-center items-center">
       <main className="relative max-w-4xl mx-auto px-4 sm:px-6 md:px-8 pt-1">
         <div className="relative mt-4 flex flex-col justify-center">
 

@@ -11,7 +11,7 @@ const SearchUser = ({ searchResult, setSearchResult }) => {
         <input 
         type="text" 
         placeholder="Search"
-        className="float-right outline-none border-2 rounded pl-2 md:px-16 py-1 hover:border-blue-light focus:border-blue-light" 
+        className="float-right outline-none border-2 rounded pl-2 px-1 md:px-2 py-1 hover:border-blue-light focus:border-blue-light" 
         value={searchResult}
         onChange={searchHandler} 
         />
