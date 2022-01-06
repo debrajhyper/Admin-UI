@@ -1,6 +1,6 @@
 # Admin UI
 
-Website - [👦🏻 Admin-UI](https://uiadmin.vercel.app).
+Website - [Admin-UI](https://uiadmin.vercel.app)
 
 ## Technology Used
 - Webpack
@@ -13,6 +13,10 @@ Website - [👦🏻 Admin-UI](https://uiadmin.vercel.app).
 - React Icons
 - VS Code
 - Chrome
+
+## Screenshots
+
+<img src="./public/template.png"/>
 
 # 💻 Running
 ## Clone & install
