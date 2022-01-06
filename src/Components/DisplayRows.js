@@ -46,7 +46,7 @@ const DisplayRows = ({ user, users, setUsers, setEditUserId, setEditUserForm }) 
             </td>
             <td className="px-6 py-2 whitespace-nowrap text-left">{user.name}</td>
             <td className="px-6 py-2 whitespace-nowrap text-left">{user.email}</td>
-            <td className="px-6 py-2 whitespace-nowrap tex-left">{user.role}</td>
+            <td className="px-0 py-2 whitespace-nowrap text-left">{user.role}</td>
             <td className="px-6 py-2 whitespace-nowrap text-center">
                 <button 
                     type="button" 
