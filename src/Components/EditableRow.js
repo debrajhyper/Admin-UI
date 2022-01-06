@@ -30,7 +30,7 @@ const EditableRow = ({ user, editUserForm ,setEditUserForm, setEditUserId }) => 
                 type="checkbox" 
                 className="form-checkbox h-4 w-4 outline-none focus:outline-none" 
                 id={user.id}
-                checked={user?.isChecked || false}
+                // checked={user?.isChecked || false}
                 value={user.name}
                 disabled={true}
                 />

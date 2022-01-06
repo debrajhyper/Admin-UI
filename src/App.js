@@ -95,7 +95,7 @@ const App = () => {
 
           <div className="mt-1 flex flex-col">
             <div className="-my-2 overflow-x-auto -mx-4 sm:-mx-6 lg:-mx-8">
-              <div className="py-2 align-middle inline-block min-w-full p-4 sm:px-6 lg:px-8">
+              <div className="py-2 align-middle inline-block min-w-[55vw] min-h-[80vh] p-4 sm:px-6 lg:px-8">
                 <div className="overflow-hidden">
                   <form onSubmit={handleUserEditFormSubmit}>
                     <table className="min-w-full whitespace-nowrap table-fixed">
@@ -143,8 +143,8 @@ const App = () => {
                                 }
                               </Fragment>
                             ))
-                          : <tr>
-                              <td colSpan='4'>No users found</td>
+                          : <tr className="text-center text-lg text-indigo-500">
+                              <td colSpan='5' className="p-5">No users found</td>
                             </tr>
                         }
                       </tbody>
@@ -155,7 +155,7 @@ const App = () => {
             </div>
           </div>
 
-          <div className="flex justify-center items-center py-10 md:py-6 bottom-0">
+          <div className={`${users.length !== 0 ? 'flex' : 'invisible' }  justify-center items-center py-10 md:py-6 bottom-0`}>
             <Pagination 
               users={users}
               itemPerPage={itemPerPage}
