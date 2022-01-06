@@ -17,8 +17,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # 💻 Running
 ## Clone & install
 
-+ Clone this repo `git@github.com:debrajhyper/this.weather.git`
-+ Goto `$ cd this.weather`
++ Clone this repo `https://github.com/debrajhyper/GeekTrust.git`
++ Goto `$ cd GeekTrust/admin-ui`
 + type `$ npm install`
 + run `$ npm start`
 
