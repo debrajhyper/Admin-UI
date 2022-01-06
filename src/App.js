@@ -47,10 +47,12 @@ const App = () => {
   //  Checked all the users in the current page and set the users to the state using the setUsers() method.
   const handleAllChecked = e => {
     const { checked } = e.target;
-    let newUsers = [...users];
-    for(let i=indexOfFirstItem; i<indexOfLastItem; i++) {
-      newUsers[i].isChecked = checked;
-    }
+    let newUsers = users.map(user => {
+      if(currentItems.includes(user)) {
+        return {...user, isChecked: checked};
+      }
+      return user;
+    })
     setUsers(newUsers);
   };
 
