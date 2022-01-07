@@ -141,7 +141,7 @@ const App = () => {
                               </Fragment>
                             ))
                           : <tr className="text-center text-lg text-indigo-500">
-                              <td colSpan='5' className="p-5">No users found</td>
+                              <td colSpan='5' className="p-5">No Users Found</td>
                             </tr>
                         }
                       </tbody>

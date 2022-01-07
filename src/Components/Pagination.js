@@ -58,7 +58,8 @@ const Pagination = ({ users, itemPerPage, currentPage,  setCurrentPage }) => {
             <ul className="inline-flex space-x-1 sm:space-x-4 md:space-x-4 px-auto text-center">
                 <li>
                     <button 
-                    id="first" 
+                    id="first"
+                    name="first" 
                     className="flex items-center justify-center w-10 h-10 text-indigo-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 disabled:opacity-60 disabled:bg-transparent" 
                     onClick={handleFirstBtn} 
                     disabled={currentPage === pages[0] ? true : false} 
@@ -69,6 +70,7 @@ const Pagination = ({ users, itemPerPage, currentPage,  setCurrentPage }) => {
                 <li>
                     <button 
                     id="prev" 
+                    name="prev"
                     className="flex items-center justify-center w-10 h-10 text-indigo-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 disabled:opacity-60 disabled:bg-transparent" 
                     onClick={handlePrevBtn} 
                     disabled={currentPage === pages[0] ? true : false}
@@ -80,6 +82,7 @@ const Pagination = ({ users, itemPerPage, currentPage,  setCurrentPage }) => {
                 <li>
                     <button 
                     id="next" 
+                    name="next"
                     className="flex items-center justify-center w-10 h-10 text-indigo-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 disabled:opacity-60 disabled:bg-transparent" 
                     onClick={handleNextBtn} 
                     disabled={currentPage === pages[pages.length - 1] ? true : false} 
@@ -90,6 +93,7 @@ const Pagination = ({ users, itemPerPage, currentPage,  setCurrentPage }) => {
                 <li>
                     <button 
                     id="last" 
+                    name="last"
                     className="flex items-center justify-center w-10 h-10 text-indigo-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 disabled:opacity-60 disabled:bg-transparent" 
                     onClick={handleLastBtn} 
                     disabled={currentPage === pages[pages.length - 1] ? true : false}
