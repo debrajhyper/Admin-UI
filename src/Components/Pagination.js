@@ -34,7 +34,7 @@ const Pagination = ({ users, itemPerPage, currentPage,  setCurrentPage }) => {
             <li key={number}>
                 <button 
                     id={number} 
-                    className={`${currentPage === number ? "active" : null} w-8 md:w-10 h-8 md:h-10 bg-white text-indigo-600 transition-colors duration-100 rounded-full focus:shadow-outline hover:bg-indigo-100`} 
+                    className={`${currentPage === number ? "active" : null} w-10 h-10 bg-white text-indigo-600 transition-colors duration-100 rounded-full focus:shadow-outline hover:bg-indigo-100`} 
                     onClick={handleClick}
                 >
                     {number}
@@ -55,11 +55,11 @@ const Pagination = ({ users, itemPerPage, currentPage,  setCurrentPage }) => {
 
     return (
         <nav id="pagination" aria-label="Page navigation">
-            <ul className="inline-flex space-x-1 sm:space-x-2 md:space-x-4 px-auto text-center">
+            <ul className="inline-flex space-x-1 sm:space-x-4 md:space-x-4 px-auto text-center">
                 <li>
                     <button 
                     id="first" 
-                    className="flex items-center justify-center w-8 md:w-10 h-8 md:h-10 text-indigo-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 disabled:opacity-60 disabled:bg-transparent" 
+                    className="flex items-center justify-center w-10 h-10 text-indigo-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 disabled:opacity-60 disabled:bg-transparent" 
                     onClick={handleFirstBtn} 
                     disabled={currentPage === pages[0] ? true : false} 
                     >
@@ -69,7 +69,7 @@ const Pagination = ({ users, itemPerPage, currentPage,  setCurrentPage }) => {
                 <li>
                     <button 
                     id="prev" 
-                    className="flex items-center justify-center w-8 md:w-10 h-8 md:h-10 text-indigo-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 disabled:opacity-60 disabled:bg-transparent" 
+                    className="flex items-center justify-center w-10 h-10 text-indigo-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 disabled:opacity-60 disabled:bg-transparent" 
                     onClick={handlePrevBtn} 
                     disabled={currentPage === pages[0] ? true : false}
                     >
@@ -80,7 +80,7 @@ const Pagination = ({ users, itemPerPage, currentPage,  setCurrentPage }) => {
                 <li>
                     <button 
                     id="next" 
-                    className="flex items-center justify-center w-8 md:w-10 h-8 md:h-10 text-indigo-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 disabled:opacity-60 disabled:bg-transparent" 
+                    className="flex items-center justify-center w-10 h-10 text-indigo-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 disabled:opacity-60 disabled:bg-transparent" 
                     onClick={handleNextBtn} 
                     disabled={currentPage === pages[pages.length - 1] ? true : false} 
                     >
@@ -90,7 +90,7 @@ const Pagination = ({ users, itemPerPage, currentPage,  setCurrentPage }) => {
                 <li>
                     <button 
                     id="last" 
-                    className="flex items-center justify-center w-8 md:w-10 h-8 md:h-10 text-indigo-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 disabled:opacity-60 disabled:bg-transparent" 
+                    className="flex items-center justify-center w-10 h-10 text-indigo-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 disabled:opacity-60 disabled:bg-transparent" 
                     onClick={handleLastBtn} 
                     disabled={currentPage === pages[pages.length - 1] ? true : false}
                     >

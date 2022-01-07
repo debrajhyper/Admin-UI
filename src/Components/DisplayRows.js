@@ -46,7 +46,7 @@ const DisplayRows = ({ user, users, setUsers, setEditUserId, setEditUserForm }) 
             </td>
             <td className="px-6 py-2 whitespace-nowrap text-left">{user.name}</td>
             <td className="px-6 py-2 whitespace-nowrap text-left">{user.email}</td>
-            <td className="px-0 py-2 whitespace-nowrap text-left">{user.role}</td>
+            <td className="px-6 py-2 whitespace-nowrap text-left">{user.role}</td>
             <td className="px-6 py-2 whitespace-nowrap text-center">
                 <button 
                     type="button" 
@@ -54,7 +54,7 @@ const DisplayRows = ({ user, users, setUsers, setEditUserId, setEditUserForm }) 
                     className="btn p-2 mr-2 text-blue-light rounded" 
                     onClick={(e) => handleUserEdit(e, user)} 
                 >
-                    <FaUserEdit size={16} />
+                    <FaUserEdit />
                 </button>
                 <button 
                     type="button" 
@@ -62,7 +62,7 @@ const DisplayRows = ({ user, users, setUsers, setEditUserId, setEditUserForm }) 
                     className="btn p-2 ml-2 text-red-500 rounded" 
                     onClick={() => handleUserDelete(user.id)} 
                 >
-                    <FaTrash size={16} />
+                    <FaTrash />
                 </button>
             </td>
         </tr>

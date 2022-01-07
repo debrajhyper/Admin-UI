@@ -19,10 +19,10 @@ const DeleteSelectedBtn = ({ users, setUsers }) => {
             id="first" 
             type="button"
             title="Delete selected"
-            className="border border-red-500 flex items-center justify-center p-2 md:px-4 md:ml-2 shadow-md shadow-red-300 text-white bg-red-500 transition-all duration-500 rounded focus:shadow hover:bg-red-600 hover:shadow-lg hover:shadow-red-200  outline-none focus:outline-none" 
+            className="border border-red-500 flex items-center justify-center p-2 md:px-4 shadow-md shadow-red-300 text-white bg-red-500 transition-all duration-500 rounded focus:shadow hover:bg-red-600 hover:shadow-lg hover:shadow-red-200  outline-none focus:outline-none" 
             onClick={handleDeleteSelected} 
         >
-            <FaTrash size={16} />
+            <FaTrash />
             <span className="ml-1 md:ml-2 text-xs md:text-base text-left">
                 Delete Selected
             </span>

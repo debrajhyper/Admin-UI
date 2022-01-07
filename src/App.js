@@ -80,27 +80,24 @@ const App = () => {
     else if (user.name.toLowerCase().includes(searchResult.toLowerCase()) || user.email.toLowerCase().includes(searchResult.toLowerCase()) || user.role.toLowerCase().includes(searchResult.toLowerCase())) {
       return user;
     }
-    return null;
+    return null;  //  Return null if the user does not match the search text.
   };
 
   return (
-    <div className="min-h-screen min-w-screen bg-background text-gray text-center flex justify-center items-center">
-      <main className="relative max-w-4xl mx-auto px-4 sm:px-6 md:px-8 pt-1">
-        <div className="relative mt-4 flex flex-col justify-center">
+    <div className="min-h-screen min-w-screen bg-background text-gray text-center flex justify-center items-center overflow-hidden">
+      <div className="h-full sm:h-auto w-full sm:w-auto -mt-10 sm:mt-4 px-2 sm:px-8 text-sm md:text-md">
 
-          <div className="py-1 pt-0 flex justify-between items-center">
+          <div className="py-1 pt-0 w-full flex justify-between items-center">
             <DeleteSelectedBtn users={users} setUsers={setUsers} />
             <SearchUser searchResult={searchResult} setSearchResult={setSearchResult} />
           </div>
 
-          <div className="mt-1 flex flex-col">
-            <div className="-my-2 overflow-x-auto -mx-4 sm:-mx-6 lg:-mx-8">
-              <div className="py-2 align-middle inline-block min-w-[55vw] min-h-[80vh] p-4 sm:px-6 lg:px-8">
-                <div className="overflow-hidden">
+          <div className="flex flex-col mt-1 min-h-[75vh] min-w-auto md:min-w-[75vw] xl:min-w-[55vw]"> 
+              <div className="py-2 pb-0 overflow-auto"> 
                   <form onSubmit={handleUserEditFormSubmit}>
-                    <table className="min-w-full whitespace-nowrap table-fixed">
-                      <thead className="">
-                        <tr className="text-left text-md font-medium text-gray-deep uppercase tracking-wider">
+                    <table className="w-full sm:min-w-full table-auto">
+                      <thead className="relative">
+                        <tr className="text-md font-medium text-gray-deep uppercase tracking-wider">
                           <th scope="col" className="px-6 py-2 w-auto text-center">
                             <input  
                             type="checkbox" 
@@ -110,13 +107,13 @@ const App = () => {
                             checked={ users.slice(indexOfFirstItem, indexOfLastItem).filter( user => user?.isChecked !== true ).length < 1 }
                             />
                           </th> 
-                          <th scope="col" className="px-6 py-2">Name</th>
-                          <th scope="col" className="px-6 py-2">Email</th>
-                          <th scope="col" className="px-6 py-2">Role</th>
+                          <th scope="col" className="px-6 py-2 text-left">Name</th>
+                          <th scope="col" className="px-6 py-2 text-left">Email</th>
+                          <th scope="col" className="px-6 py-2 text-left">Role</th>
                           <th scope="col" className="px-6 py-2 text-center">Action</th>
                         </tr>
                       </thead>
-                      <tbody className="relative divide-y-4 divide-transparent">
+                      <tbody className="relative text-md divide-y-4 divide-transparent">
                         {
                           users && users.length > 0 
                           ? currentItems
@@ -150,12 +147,10 @@ const App = () => {
                       </tbody>
                     </table>
                   </form>
-                </div>
               </div>
-            </div>
           </div>
 
-          <div className={`${users.length !== 0 ? 'flex' : 'invisible' }  justify-center items-center py-10 md:py-6 bottom-0`}>
+          <div className={`${users.length !== 0 ? 'flex' : 'invisible' }  justify-center items-center py-2 md:py-6`}>
             <Pagination 
               users={users}
               itemPerPage={itemPerPage}
@@ -164,8 +159,7 @@ const App = () => {
             />
           </div>
           
-        </div>
-      </main>
+      </div>
     </div>
   )
 }

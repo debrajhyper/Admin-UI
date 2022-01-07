@@ -25,7 +25,7 @@ const EditableRow = ({ user, editUserForm ,setEditUserForm, setEditUserId }) => 
 
     return (
         <tr id={user.id} className="data-row bg-white whitespace-nowrap hover:cursor-default hover:bg-blue-light hover:text-gray">
-            <td className="px-6 py-2 whitespace-nowrap">
+            <td className="px-6 py-2 whitespace-nowrap text-center">
                 <input 
                 type="checkbox" 
                 className="form-checkbox h-4 w-4 outline-none focus:outline-none" 
@@ -35,7 +35,7 @@ const EditableRow = ({ user, editUserForm ,setEditUserForm, setEditUserId }) => 
                 disabled={true}
                 />
             </td>
-            <td className="px-5 py-2 whitespace-nowrap">
+            <td className="px-5 py-2 whitespace-nowrap text-left">
                 <input 
                 type="text" 
                 name="name" 
@@ -47,7 +47,7 @@ const EditableRow = ({ user, editUserForm ,setEditUserForm, setEditUserId }) => 
                 size={14}
                 />
             </td>
-            <td className="px-5 py-2 whitespace-nowrap">
+            <td className="px-5 py-2 whitespace-nowrap text-left">
                 <input 
                 type="text" 
                 name="email"
@@ -59,7 +59,7 @@ const EditableRow = ({ user, editUserForm ,setEditUserForm, setEditUserId }) => 
                 size={25}
                 />
             </td>
-            <td className="px-5 py-2 whitespace-nowrap">
+            <td className="px-5 py-2 whitespace-nowrap text-left">
                 <input 
                 type="text" 
                 name="role"
@@ -71,7 +71,7 @@ const EditableRow = ({ user, editUserForm ,setEditUserForm, setEditUserId }) => 
                 size={9}
                 />
             </td>
-            <td className="px-6 py-2 whitespace-nowrap">
+            <td className="px-6 py-2 whitespace-nowrap text-center">
                 <button type="submit" title="Update" className="btn p-2 mr-2 text-green-500 rounded">
                     <FiCheckCircle size={16} />
                 </button>
