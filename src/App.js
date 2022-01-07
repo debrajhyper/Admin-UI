@@ -85,7 +85,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen min-w-screen bg-background text-gray text-center flex justify-center items-center overflow-hidden">
-      <div className="h-full sm:h-auto w-full sm:w-auto -mt-10 sm:mt-4 px-2 sm:px-8 text-sm md:text-md">
+      <div className="h-full sm:h-auto w-full sm:w-auto mt-0 sm:mt-4 px-2 sm:px-8 text-sm md:text-md">
 
           <div className="py-1 pt-0 w-full flex justify-between items-center">
             <DeleteSelectedBtn users={users} setUsers={setUsers} />
