@@ -2,11 +2,9 @@ import React, { useEffect, useState, Fragment } from 'react'
 
 import "./App.css"
 import Api from "./Services/Api";
-import DeleteSelectedBtn from './Components/DeleteSelectedBtn';
-import SearchUser from './Components/SearchUser';
-import EditableRow from './Components/EditableRow';
-import DisplayRows from './Components/DisplayRows';
-import Pagination from './Components/Pagination';
+import ThemeToggle from "./Components/DarkMode/ThemeToggle";
+import { DeleteSelectedBtn, SearchUser, EditableRow, DisplayRows, Pagination } from "./Components";
+import icon from "./icon.png";
 
 const App = () => {
 
@@ -40,10 +38,6 @@ const App = () => {
     .catch(error => console.log(error));
   }, []); //  [] is used to tell React that this effect should only run once.
 
-  const indexOfLastItem = currentPage * itemPerPage;  //  Calculate the index of the last item in the current page.
-  const indexOfFirstItem = indexOfLastItem - itemPerPage; //  Calculate the index of the first item in the current page.
-  const currentItems = users.slice(indexOfFirstItem, indexOfLastItem);  //  Get the users in the current page.
-
   //  Checked all the users in the current page and set the users to the state using the setUsers() method.
   const handleAllChecked = e => {
     const { checked } = e.target;
@@ -71,7 +65,7 @@ const App = () => {
     setUsers(newUser);
     setEditUserId(null);
   };
-  
+
   //  Return the list of users that match the search text entered by the user.
   const searchResultUser = user => {
     if(searchResult === '') {
@@ -82,14 +76,22 @@ const App = () => {
     }
     return null;  //  Return null if the user does not match the search text.
   };
+  
+  const indexOfLastItem = currentPage * itemPerPage;  //  Calculate the index of the last item in the current page.
+  const indexOfFirstItem = indexOfLastItem - itemPerPage; //  Calculate the index of the first item in the current page.
+  const filteredUsers = users.filter((user) => searchResultUser(user));  //  Filter the users based on the search text entered by the user.
+  const currentItems = filteredUsers.slice(indexOfFirstItem, indexOfLastItem);  //  Get the users in the current page.
 
   return (
-    <div className="min-h-screen min-w-screen bg-background text-gray text-center flex justify-center items-center overflow-hidden">
-      <div className="h-full sm:h-auto w-full sm:w-auto mt-0 sm:mt-4 px-2 sm:px-8 text-sm md:text-md">
+    <div className="min-h-screen min-w-screen bg-background dark:bg-background-dark dark:text-white transition-all ease-out text-gray text-center flex justify-center items-center overflow-hidden">
+      <div className=" h-full sm:h-auto w-full sm:w-auto mt-0 sm:mt-4 px-2 sm:px-8 text-sm md:text-md">
 
           <div className="py-1 pt-0 w-full flex justify-between items-center">
             <DeleteSelectedBtn users={users} setUsers={setUsers} />
-            <SearchUser searchResult={searchResult} setSearchResult={setSearchResult} />
+            <div className="flex justify-center items-center">
+              <SearchUser searchResult={searchResult} setSearchResult={setSearchResult} />
+              <ThemeToggle />
+            </div>
           </div>
 
           <div className="flex flex-col mt-1 min-h-[75vh] min-w-auto md:min-w-[75vw] xl:min-w-[55vw]"> 
@@ -115,9 +117,8 @@ const App = () => {
                       </thead>
                       <tbody className="relative text-md divide-y-4 divide-transparent">
                         {
-                          users && users.length > 0 
+                          users && users.length > 0 && filteredUsers.length > 0 
                           ? currentItems
-                            .filter((user) => searchResultUser(user))
                             .map((user, index) => (
                               <Fragment key={index}>
                                 {
@@ -140,8 +141,13 @@ const App = () => {
                                 }
                               </Fragment>
                             ))
-                          : <tr className="text-center text-lg text-indigo-500">
-                              <td colSpan='5' className="p-5">No Users Found</td>
+                          : <tr className="text-center w-full text-lg text-indigo-500">
+                                <td colSpan={5} className="p-5">
+                                  <div className="flex flex-col justify-center items-center">
+                                    <img src={icon} alt="Empty" />
+                                    <span className="p-2 text-lg font-semibold">No Users Found</span>
+                                  </div>
+                                </td>
                             </tr>
                         }
                       </tbody>
@@ -152,7 +158,7 @@ const App = () => {
 
           <div className={`${users.length !== 0 ? 'flex' : 'invisible' }  justify-center items-center py-2 md:py-6`}>
             <Pagination 
-              users={users}
+              filteredUsers={filteredUsers}
               itemPerPage={itemPerPage}
               currentPage={currentPage}
               setCurrentPage={setCurrentPage}

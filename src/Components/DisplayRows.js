@@ -19,7 +19,7 @@ const DisplayRows = ({ user, users, setUsers, setEditUserId, setEditUserForm }) 
             id: user.id,
             name: user.name,
             email: user.email,
-            role: user.role
+            role: user.role,
         };
         setEditUserForm(formValues);
     };
@@ -33,7 +33,7 @@ const DisplayRows = ({ user, users, setUsers, setEditUserId, setEditUserForm }) 
     };
 
     return (
-        <tr id={user.id} className={`data-row bg-white whitespace-nowrap hover:cursor-default hover:bg-blue-light hover:text-white ${user?.isChecked ? 'bg-gray-100' : null}`}>
+        <tr id={user.id} className={`data-row bg-white dark:bg-dark whitespace-nowrap hover:cursor-default hover:bg-blue-light dark:hover:bg-blue-dark hover:text-white ${user?.isChecked ? 'bg-gray-100 dark:bg-gray-800' : null}`}>
             <td className="px-6 py-2 whitespace-nowrap text-center">
                 <input 
                     type="checkbox" 
@@ -51,7 +51,7 @@ const DisplayRows = ({ user, users, setUsers, setEditUserId, setEditUserForm }) 
                 <button 
                     type="button" 
                     title="Edit" 
-                    className="btn p-2 mr-2 text-blue-light rounded" 
+                    className="btn p-2 mr-2 text-blue-light rounded dark:text-blue-dark" 
                     onClick={(e) => handleUserEdit(e, user)} 
                 >
                     <FaUserEdit />

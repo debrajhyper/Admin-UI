@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { FiCheckCircle } from 'react-icons/fi';
 import { MdOutlineCancel } from 'react-icons/md';
@@ -21,10 +21,8 @@ const EditableRow = ({ user, editUserForm ,setEditUserForm, setEditUserId }) => 
         setEditUserId(null);
     };
 
-
-
     return (
-        <tr id={user.id} className="data-row bg-white whitespace-nowrap hover:cursor-default hover:bg-blue-light hover:text-gray">
+        <tr id={user.id} className="data-row bg-white dark:bg-dark whitespace-nowrap hover:cursor-default hover:bg-blue-light dark:hover:bg-blue-dark hover:text-gray">
             <td className="px-6 py-2 whitespace-nowrap text-center">
                 <input 
                 type="checkbox" 
@@ -39,7 +37,7 @@ const EditableRow = ({ user, editUserForm ,setEditUserForm, setEditUserId }) => 
                 <input 
                 type="text" 
                 name="name" 
-                className="form-input px-1 border-2 border-blue-light rounded bg-indigo-100 focus:outline-none" 
+                className="form-input px-1 border-2 border-blue-light dark:border-blue-dark rounded bg-indigo-100 dark:bg-indigo-400 focus:outline-none" 
                 required="required" 
                 placeholder="Enter a name"
                 value={user.name}
@@ -51,7 +49,7 @@ const EditableRow = ({ user, editUserForm ,setEditUserForm, setEditUserId }) => 
                 <input 
                 type="text" 
                 name="email"
-                className="form-input px-1 border-2 border-blue-light rounded bg-indigo-100 focus:outline-none" 
+                className="form-input px-1 border-2 border-blue-light dark:border-blue-dark rounded bg-indigo-100 dark:bg-indigo-400 focus:outline-none" 
                 required="required" 
                 placeholder="Enter an email"
                 value={user.email}
@@ -63,7 +61,7 @@ const EditableRow = ({ user, editUserForm ,setEditUserForm, setEditUserId }) => 
                 <input 
                 type="text" 
                 name="role"
-                className="form-input px-1 border-2 border-blue-light rounded bg-indigo-100 focus:outline-none" 
+                className="form-input px-1 border-2 border-blue-light dark:border-blue-dark rounded bg-indigo-100 dark:bg-indigo-400 focus:outline-none" 
                 required="required"
                 placeholder="Enter a role"
                 value={user.role}

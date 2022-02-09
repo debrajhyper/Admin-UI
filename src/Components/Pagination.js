@@ -3,13 +3,13 @@ import React from 'react'
 import { HiChevronDoubleLeft, HiChevronDoubleRight } from 'react-icons/hi';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
-const Pagination = ({ users, itemPerPage, currentPage,  setCurrentPage }) => {
+const Pagination = ({ filteredUsers, itemPerPage, currentPage,  setCurrentPage }) => {
 
     //  Array of numbers containing the number of pages.
     var pages = [];
 
     //  Calculate the number of pages.
-    for(let i=1; i<=Math.ceil(users.length/itemPerPage); i++) {
+    for(let i=1; i<=Math.ceil(filteredUsers.length/itemPerPage); i++) {
         pages.push(i);
     };
 
@@ -34,7 +34,7 @@ const Pagination = ({ users, itemPerPage, currentPage,  setCurrentPage }) => {
             <li key={number}>
                 <button 
                     id={number} 
-                    className={`${currentPage === number ? "active" : null} w-10 h-10 bg-white text-indigo-600 transition-colors duration-100 rounded-full focus:shadow-outline hover:bg-indigo-100`} 
+                    className={`${currentPage === number ? "active" : null} w-10 h-10 bg-white dark:bg-dark text-indigo-600 transition-colors duration-100 rounded-full focus:shadow-outline hover:bg-indigo-100 dark:hover:bg-indigo-300`} 
                     onClick={handleClick}
                 >
                     {number}
@@ -50,7 +50,7 @@ const Pagination = ({ users, itemPerPage, currentPage,  setCurrentPage }) => {
 
     //  paginate to the last page.
     const handleLastBtn = () => {
-        setCurrentPage(Math.ceil(users.length/itemPerPage));
+        setCurrentPage(Math.ceil(filteredUsers.length/itemPerPage));
     };
 
     return (
@@ -60,7 +60,7 @@ const Pagination = ({ users, itemPerPage, currentPage,  setCurrentPage }) => {
                     <button 
                     id="first"
                     name="first" 
-                    className="flex items-center justify-center w-10 h-10 text-indigo-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 disabled:opacity-60 disabled:bg-transparent" 
+                    className="flex items-center justify-center w-10 h-10 text-indigo-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 dark:hover:bg-indigo-300 disabled:opacity-60 disabled:bg-transparent" 
                     onClick={handleFirstBtn} 
                     disabled={currentPage === pages[0] ? true : false} 
                     >
@@ -71,7 +71,7 @@ const Pagination = ({ users, itemPerPage, currentPage,  setCurrentPage }) => {
                     <button 
                     id="prev" 
                     name="prev"
-                    className="flex items-center justify-center w-10 h-10 text-indigo-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 disabled:opacity-60 disabled:bg-transparent" 
+                    className="flex items-center justify-center w-10 h-10 text-indigo-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 dark:hover:bg-indigo-300 disabled:opacity-60 disabled:bg-transparent" 
                     onClick={handlePrevBtn} 
                     disabled={currentPage === pages[0] ? true : false}
                     >
@@ -83,7 +83,7 @@ const Pagination = ({ users, itemPerPage, currentPage,  setCurrentPage }) => {
                     <button 
                     id="next" 
                     name="next"
-                    className="flex items-center justify-center w-10 h-10 text-indigo-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 disabled:opacity-60 disabled:bg-transparent" 
+                    className="flex items-center justify-center w-10 h-10 text-indigo-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 dark:hover:bg-indigo-300 disabled:opacity-60 disabled:bg-transparent" 
                     onClick={handleNextBtn} 
                     disabled={currentPage === pages[pages.length - 1] ? true : false} 
                     >
@@ -94,7 +94,7 @@ const Pagination = ({ users, itemPerPage, currentPage,  setCurrentPage }) => {
                     <button 
                     id="last" 
                     name="last"
-                    className="flex items-center justify-center w-10 h-10 text-indigo-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 disabled:opacity-60 disabled:bg-transparent" 
+                    className="flex items-center justify-center w-10 h-10 text-indigo-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100 dark:hover:bg-indigo-300 disabled:opacity-60 disabled:bg-transparent" 
                     onClick={handleLastBtn} 
                     disabled={currentPage === pages[pages.length - 1] ? true : false}
                     >

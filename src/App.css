@@ -6,6 +6,10 @@ table tbody .data-row:hover .btn {
   background-color: white;
 }
 
+/* table tbody .data-row.bg-dark:hover .btn {
+  background-color: #23272b;
+} */
+
 #pagination ul li button.active {
   color: white;
   background-color: #6366f1;
