@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { FaSun, FaMoon} from "react-icons/fa";
 import { AiOutlineFire, AiFillFire } from "react-icons/ai";
 import { ThemeContext } from './ThemeContext';
 
