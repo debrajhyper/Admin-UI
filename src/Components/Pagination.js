@@ -54,7 +54,7 @@ const Pagination = ({ filteredUsers, itemPerPage, currentPage,  setCurrentPage }
     };
 
     return (
-        <nav id="pagination" aria-label="Page navigation">
+        <nav data-testid="pagination" id="pagination" aria-label="Page navigation">
             <ul className="inline-flex space-x-1 sm:space-x-4 md:space-x-4 px-auto text-center">
                 <li>
                     <button 

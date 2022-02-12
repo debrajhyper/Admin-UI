@@ -33,7 +33,7 @@ const DisplayRows = ({ user, users, setUsers, setEditUserId, setEditUserForm }) 
     };
 
     return (
-        <tr id={user.id} className={`data-row bg-white dark:bg-dark whitespace-nowrap hover:cursor-default hover:bg-blue-light dark:hover:bg-blue-dark hover:text-white ${user?.isChecked ? 'bg-gray-100 dark:bg-gray-800' : null}`}>
+        <tr data-testid="display-rows" id={user.id} className={`data-row bg-white dark:bg-dark whitespace-nowrap hover:cursor-default hover:bg-blue-light dark:hover:bg-blue-dark hover:text-white ${user?.isChecked ? 'bg-gray-100 dark:bg-gray-800' : null}`}>
             <td className="px-6 py-2 whitespace-nowrap text-center">
                 <input 
                     type="checkbox" 

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 1`] = `
+<tr
+  className="text-center w-full text-lg text-indigo-500"
+>
+  <td
+    className="p-20"
+    colSpan={5}
+  >
+    <div
+      className="flex justify-center items-center text-3xl"
+    >
+      <h1
+        className="px-1 pt-2 font-bold tracking-widest"
+      >
+        Loading
+      </h1>
+      <img
+        alt="loader"
+        className="w-20 pb-2"
+        src="105-loader.webp"
+      />
+    </div>
+  </td>
+</tr>
+`;

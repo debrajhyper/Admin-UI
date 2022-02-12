@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 1`] = `
+<input
+  className="float-right outline-none border-2 dark:border-gray-700 rounded pl-2 px-1 md:px-2 py-1 dark:bg-gray-800 hover:border-blue-light dark:hover:border-blue-dark focus:border-blue-light dark:focus:border-blue-dark"
+  data-testid="search-user"
+  onChange={[Function]}
+  placeholder="Search"
+  type="text"
+  value="abh"
+/>
+`;

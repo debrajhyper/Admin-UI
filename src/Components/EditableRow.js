@@ -22,7 +22,7 @@ const EditableRow = ({ user, editUserForm ,setEditUserForm, setEditUserId }) => 
     };
 
     return (
-        <tr id={user.id} className="data-row bg-white dark:bg-dark whitespace-nowrap hover:cursor-default hover:bg-blue-light dark:hover:bg-blue-dark hover:text-gray">
+        <tr data-testid="editable-rows" id={user.id} className="data-row bg-white dark:bg-dark whitespace-nowrap hover:cursor-default hover:bg-blue-light dark:hover:bg-blue-dark hover:text-gray">
             <td className="px-6 py-2 whitespace-nowrap text-center">
                 <input 
                 type="checkbox" 

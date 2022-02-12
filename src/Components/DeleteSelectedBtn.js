@@ -16,6 +16,7 @@ const DeleteSelectedBtn = ({ users, setUsers }) => {
     
     return (
         <button 
+            data-testid="delete-selected-btn"
             id="first" 
             type="button"
             title="Delete selected"

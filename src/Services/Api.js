@@ -15,7 +15,7 @@ class Api {
         return await fetch(this.BASE_API_URL)
             .then(response => response.json())
             .then(data => data)
-            .catch(error => console.log(error));
+            // .catch(error => console.log(error));
     }
 }
 

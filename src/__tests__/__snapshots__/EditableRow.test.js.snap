@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 1`] = `
+<tr
+  className="data-row bg-white dark:bg-dark whitespace-nowrap hover:cursor-default hover:bg-blue-light dark:hover:bg-blue-dark hover:text-gray"
+  data-testid="editable-rows"
+  id={1}
+>
+  <td
+    className="px-6 py-2 whitespace-nowrap text-center"
+  >
+    <input
+      className="form-checkbox h-4 w-4 outline-none focus:outline-none"
+      disabled={true}
+      id={1}
+      type="checkbox"
+      value="Aaron Miles"
+    />
+  </td>
+  <td
+    className="px-5 py-2 whitespace-nowrap text-left"
+  >
+    <input
+      className="form-input px-1 border-2 border-blue-light dark:border-blue-dark rounded bg-indigo-100 dark:bg-indigo-400 focus:outline-none"
+      name="name"
+      onChange={[Function]}
+      placeholder="Enter a name"
+      required="required"
+      size={14}
+      type="text"
+      value="Aaron Miles"
+    />
+  </td>
+  <td
+    className="px-5 py-2 whitespace-nowrap text-left"
+  >
+    <input
+      className="form-input px-1 border-2 border-blue-light dark:border-blue-dark rounded bg-indigo-100 dark:bg-indigo-400 focus:outline-none"
+      name="email"
+      onChange={[Function]}
+      placeholder="Enter an email"
+      required="required"
+      size={25}
+      type="text"
+      value="aaron@mailinator.com"
+    />
+  </td>
+  <td
+    className="px-5 py-2 whitespace-nowrap text-left"
+  >
+    <input
+      className="form-input px-1 border-2 border-blue-light dark:border-blue-dark rounded bg-indigo-100 dark:bg-indigo-400 focus:outline-none"
+      name="role"
+      onChange={[Function]}
+      placeholder="Enter a role"
+      required="required"
+      size={9}
+      type="text"
+      value="member"
+    />
+  </td>
+  <td
+    className="px-6 py-2 whitespace-nowrap text-center"
+  >
+    <button
+      className="btn p-2 mr-2 text-green-500 rounded"
+      title="Update"
+      type="submit"
+    >
+      <svg
+        fill="none"
+        height={16}
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 24 24"
+        width={16}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M22 11.08V12a10 10 0 1 1-5.93-9.14"
+        />
+        <polyline
+          points="22 4 12 14.01 9 11.01"
+        />
+      </svg>
+    </button>
+    <button
+      className="btn p-2 ml-2 text-red-500 rounded"
+      onClick={[Function]}
+      title="Cancel"
+      type="button"
+    >
+      <svg
+        fill="currentColor"
+        height={16}
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 24 24"
+        width={16}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0V0z"
+          fill="none"
+          opacity=".87"
+        />
+        <path
+          d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.59-13L12 10.59 8.41 7 7 8.41 10.59 12 7 15.59 8.41 17 12 13.41 15.59 17 17 15.59 13.41 12 17 8.41z"
+        />
+      </svg>
+    </button>
+  </td>
+</tr>
+`;

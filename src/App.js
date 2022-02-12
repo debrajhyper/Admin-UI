@@ -3,13 +3,19 @@ import React, { useEffect, useState, Fragment } from 'react'
 import "./App.css"
 import Api from "./Services/Api";
 import ThemeToggle from "./Components/DarkMode/ThemeToggle";
-import { DeleteSelectedBtn, SearchUser, EditableRow, DisplayRows, Pagination } from "./Components";
-import icon from "./icon.png";
+import { DeleteSelectedBtn, SearchUser, EditableRow, DisplayRows, Pagination, Modal, Skeleton } from "./Components";
+import icon from "./Images/icon.png";
 
 const App = () => {
 
+  //  Use state to show initial loading skeleton state.
+  const [loading, setLoading] = useState(true);
+
   //  Use state to store the users data from the API call and set it to an empty array initially.
   const [users, setUsers] = useState([]);
+
+  //  Use state to set the error to be true if the API call fails and set it to false if the API call succeeds.
+  const [error, setError] = useState(false);
 
   //  Use state to store the edited user data and set it to an empty object initially.
   const [editUserForm, setEditUserForm] = useState({
@@ -34,8 +40,12 @@ const App = () => {
   //  Get the users from the API when the component mounts and set the users to the state using the setUsers() method.
   useEffect(() => {
     Api.getUsers()
-    .then(data => setUsers(data))
-    .catch(error => console.log(error));
+    .then(data => { 
+      setError(false) 
+      setUsers(data)
+    })
+    .catch(error => setError(true))
+    .finally(setLoading(false));
   }, []); //  [] is used to tell React that this effect should only run once.
 
   //  Checked all the users in the current page and set the users to the state using the setUsers() method.
@@ -83,41 +93,47 @@ const App = () => {
   const currentItems = filteredUsers.slice(indexOfFirstItem, indexOfLastItem);  //  Get the users in the current page.
 
   return (
-    <div className="min-h-screen min-w-screen bg-background dark:bg-background-dark dark:text-white transition-all ease-out text-gray text-center flex justify-center items-center overflow-hidden">
-      <div className=" h-full sm:h-auto w-full sm:w-auto mt-0 sm:mt-4 px-2 sm:px-8 text-sm md:text-md">
+    <div className="relative min-h-screen min-w-screen bg-background dark:bg-background-dark dark:text-white transition-all ease-out text-gray text-center flex justify-center items-center overflow-hidden">
+      <div className="h-full sm:h-auto w-full sm:w-auto mt-0 sm:mt-4 px-2 sm:px-8 text-sm md:text-md">
 
-          <div className="py-1 pt-0 w-full flex justify-between items-center">
-            <DeleteSelectedBtn users={users} setUsers={setUsers} />
-            <div className="flex justify-center items-center">
-              <SearchUser searchResult={searchResult} setSearchResult={setSearchResult} />
-              <ThemeToggle />
-            </div>
+        {
+          error && <Modal />
+        }
+
+        <div className="py-1 pt-0 w-full flex justify-between items-center">
+          <DeleteSelectedBtn users={users} setUsers={setUsers} />
+          <div className="flex justify-center items-center">
+            <SearchUser searchResult={searchResult} setSearchResult={setSearchResult} />
+            <ThemeToggle />
           </div>
+        </div>
 
-          <div className="flex flex-col mt-1 min-h-[75vh] min-w-auto md:min-w-[75vw] xl:min-w-[55vw]"> 
-              <div className="py-2 pb-0 overflow-auto"> 
-                  <form onSubmit={handleUserEditFormSubmit}>
-                    <table className="w-full sm:min-w-full table-auto">
-                      <thead className="relative">
-                        <tr className="text-md font-medium text-gray-deep uppercase tracking-wider">
-                          <th scope="col" className="px-6 py-2 w-auto text-center">
-                            <input  
-                            type="checkbox" 
-                            value="checkedAll" 
-                            className="form-checkbox h-4 w-4" 
-                            onChange={handleAllChecked} 
-                            checked={ users.slice(indexOfFirstItem, indexOfLastItem).filter( user => user?.isChecked !== true ).length < 1 }
-                            />
-                          </th> 
-                          <th scope="col" className="px-6 py-2 text-left">Name</th>
-                          <th scope="col" className="px-6 py-2 text-left">Email</th>
-                          <th scope="col" className="px-6 py-2 text-left">Role</th>
-                          <th scope="col" className="px-6 py-2 text-center">Action</th>
-                        </tr>
-                      </thead>
-                      <tbody className="relative text-md divide-y-4 divide-transparent">
-                        {
-                          users && users.length > 0 && filteredUsers.length > 0 
+        <div className="flex flex-col mt-1 min-h-[75vh] min-w-auto md:min-w-[75vw] xl:min-w-[55vw]"> 
+            <div className="py-2 pb-0 overflow-auto"> 
+                <form onSubmit={handleUserEditFormSubmit}>
+                  <table className="w-full sm:min-w-full table-auto">
+                    <thead className="relative">
+                      <tr className="text-md font-medium text-gray-deep uppercase tracking-wider">
+                        <th scope="col" className="px-6 py-2 w-auto text-center">
+                          <input  
+                          type="checkbox" 
+                          value="checkedAll" 
+                          className="form-checkbox h-4 w-4" 
+                          onChange={handleAllChecked} 
+                          checked={ users.slice(indexOfFirstItem, indexOfLastItem).filter( user => user?.isChecked !== true ).length < 1 }
+                          />
+                        </th> 
+                        <th scope="col" className="px-6 py-2 text-left">Name</th>
+                        <th scope="col" className="px-6 py-2 text-left">Email</th>
+                        <th scope="col" className="px-6 py-2 text-left">Role</th>
+                        <th scope="col" className="px-6 py-2 text-center">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody className="relative text-md divide-y-4 divide-transparent">
+                      {
+                        loading 
+                        ? <Skeleton />
+                        : users && users.length > 0 && filteredUsers.length > 0 
                           ? currentItems
                             .map((user, index) => (
                               <Fragment key={index}>
@@ -149,22 +165,22 @@ const App = () => {
                                   </div>
                                 </td>
                             </tr>
-                        }
-                      </tbody>
-                    </table>
-                  </form>
-              </div>
-          </div>
+                      }
+                    </tbody>
+                  </table>
+                </form>
+            </div>
+        </div>
 
-          <div className={`${users.length !== 0 ? 'flex' : 'invisible' }  justify-center items-center py-2 md:py-6`}>
-            <Pagination 
-              filteredUsers={filteredUsers}
-              itemPerPage={itemPerPage}
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-            />
-          </div>
-          
+        <div className={`${users.length !== 0 ? 'flex' : 'invisible' }  justify-center items-center py-2 md:py-6`}>
+          <Pagination 
+            filteredUsers={filteredUsers}
+            itemPerPage={itemPerPage}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
+        </div>
+        
       </div>
     </div>
   )
